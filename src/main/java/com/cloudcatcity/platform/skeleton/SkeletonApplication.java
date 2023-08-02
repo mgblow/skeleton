@@ -1,8 +1,8 @@
 package com.cloudcatcity.platform.skeleton;
 
-import com.cloudcatcity.platform.skeleton.models.Address;
-import com.cloudcatcity.platform.skeleton.models.Person;
-import com.cloudcatcity.platform.skeleton.repositories.PeopleRepository;
+import com.cloudcatcity.platform.skeleton.persons.models.Address;
+import com.cloudcatcity.platform.skeleton.persons.models.Person;
+import com.cloudcatcity.platform.skeleton.persons.repositories.PeopleRepository;
 import com.redis.om.spring.annotations.EnableRedisDocumentRepositories;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

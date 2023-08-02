@@ -1,0 +1,5 @@
+com\cloudcatcity\platform\skeleton\persons\services\PeopleService.class
+com\cloudcatcity\platform\skeleton\models\Person$.class
+com\cloudcatcity\platform\skeleton\persons\controllers\PeopleControllerV1.class
+com\cloudcatcity\platform\skeleton\SkeletonApplication.class
+com\cloudcatcity\platform\skeleton\persons\models\Person$.class
