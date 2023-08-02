@@ -131,8 +131,8 @@ You can inject a Repository and perform the basic CRUD operations as well as any
 PeopleRepository repo;
 
 @PostMapping("new")
-Person create(@RequestBody Person newPerson) {
-  return repo.save(newPerson);
+Person create(@RequestBody Person newUser) {
+  return repo.save(newUser);
 }
 ```
 

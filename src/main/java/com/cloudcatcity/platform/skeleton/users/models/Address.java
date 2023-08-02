@@ -1,4 +1,4 @@
-package com.cloudcatcity.platform.skeleton.persons.models;
+package com.cloudcatcity.platform.skeleton.users.models;
 
 import com.redis.om.spring.annotations.Indexed;
 import com.redis.om.spring.annotations.Searchable;

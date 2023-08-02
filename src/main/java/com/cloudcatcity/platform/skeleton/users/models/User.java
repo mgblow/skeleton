@@ -1,4 +1,4 @@
-package com.cloudcatcity.platform.skeleton.persons.models;
+package com.cloudcatcity.platform.skeleton.users.models;
 
 import java.util.Set;
 
@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Data
 @Document
-public class Person {
+public class User {
   // Id Field, also indexed
   @Id
   @Indexed

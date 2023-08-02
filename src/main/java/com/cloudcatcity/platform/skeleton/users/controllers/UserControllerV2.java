@@ -1,6 +1,7 @@
-package com.cloudcatcity.platform.skeleton.persons.controllers;
+package com.cloudcatcity.platform.skeleton.users.controllers;
 
-import com.cloudcatcity.platform.skeleton.persons.services.PeopleService;
+import com.cloudcatcity.platform.skeleton.users.models.User;
+import com.cloudcatcity.platform.skeleton.users.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Metrics;
@@ -11,39 +12,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cloudcatcity.platform.skeleton.persons.models.Person;
-
 @RestController
 @RequestMapping("/api/v2/people")
-public class PeopleControllerV2 {
+public class UserControllerV2 {
 
   @Autowired
-  PeopleService service;
+  UserService service;
 
   @GetMapping("age_between")
-  Iterable<Person> byAgeBetween(
+  Iterable<User> byAgeBetween(
       @RequestParam("min") int min, //
       @RequestParam("max") int max) {
     return service.findByAgeBetween(min, max);
   }
 
   @GetMapping("name")
-  Iterable<Person> byFirstNameAndLastName(
+  Iterable<User> byFirstNameAndLastName(
       @RequestParam("first") String firstName, //
       @RequestParam("last") String lastName) {
     return service.findByFirstNameAndLastName(firstName, lastName);
   }
 
   @GetMapping("homeloc")
-  Iterable<Person> byHomeLoc(//
-      @RequestParam("lat") double lat, //
-      @RequestParam("lon") double lon, //
-      @RequestParam("d") double distance) {
+  Iterable<User> byHomeLoc(//
+                           @RequestParam("lat") double lat, //
+                           @RequestParam("lon") double lon, //
+                           @RequestParam("d") double distance) {
     return service.findByHomeLoc(new Point(lon, lat), new Distance(distance, Metrics.MILES));
   }
 
   @GetMapping("statement/{q}")
-  Iterable<Person> byPersonalStatement(@PathVariable("q") String q) {
+  Iterable<User> byPersonalStatement(@PathVariable("q") String q) {
     return service.searchByPersonalStatement(q);
   }
 

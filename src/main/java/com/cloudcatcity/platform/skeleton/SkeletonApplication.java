@@ -1,8 +1,8 @@
 package com.cloudcatcity.platform.skeleton;
 
-import com.cloudcatcity.platform.skeleton.persons.models.Address;
-import com.cloudcatcity.platform.skeleton.persons.models.Person;
-import com.cloudcatcity.platform.skeleton.persons.repositories.PeopleRepository;
+import com.cloudcatcity.platform.skeleton.users.models.Address;
+import com.cloudcatcity.platform.skeleton.users.models.User;
+import com.cloudcatcity.platform.skeleton.users.repositories.UserRepository;
 import com.redis.om.spring.annotations.EnableRedisDocumentRepositories;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -25,10 +25,10 @@ public class SkeletonApplication {
     Logger logger = LoggerFactory.getLogger(SkeletonApplication.class);
 
     @Autowired
-    PeopleRepository repo;
+    UserRepository repo;
 
     @Bean
-    CommandLineRunner loadTestData(PeopleRepository repo) {
+    CommandLineRunner loadTestData(UserRepository repo) {
         return args -> {
             repo.deleteAll();
 
@@ -57,17 +57,17 @@ public class SkeletonApplication {
             // 11461 Sunset Blvd, Los Angeles, CA 90049
             Address nickFuryAddress = Address.of("11461", "Sunset Blvd", "Los Angeles", "CA", "90049", "US");
 
-            Person thor = Person.of("Chris", "Hemsworth", 38, thorSays, new Point(153.616667, -28.716667), thorsAddress,
+            User thor = User.of("Chris", "Hemsworth", 38, thorSays, new Point(153.616667, -28.716667), thorsAddress,
                     Set.of("hammer", "biceps", "hair", "heart"));
-            Person ironman = Person.of("Robert", "Downey", 56, ironmanSays, new Point(40.9190747, -72.5371874),
+            User ironman = User.of("Robert", "Downey", 56, ironmanSays, new Point(40.9190747, -72.5371874),
                     ironmansAddress, Set.of("tech", "money", "one-liners", "intelligence", "resources"));
-            Person blackWidow = Person.of("Scarlett", "Johansson", 37, blackWidowSays, new Point(40.7215259, -74.0129994),
+            User blackWidow = User.of("Scarlett", "Johansson", 37, blackWidowSays, new Point(40.7215259, -74.0129994),
                     blackWidowAddress, Set.of("deception", "martial_arts"));
-            Person wandaMaximoff = Person.of("Elizabeth", "Olsen", 32, wandaMaximoffSays, new Point(40.6976701, -74.2598641),
+            User wandaMaximoff = User.of("Elizabeth", "Olsen", 32, wandaMaximoffSays, new Point(40.6976701, -74.2598641),
                     wandaMaximoffsAddress, Set.of("magic", "loyalty"));
-            Person gamora = Person.of("Zoe", "Saldana", 43, gamoraSays, new Point(-118.399968, 34.073087), gamorasAddress,
+            User gamora = User.of("Zoe", "Saldana", 43, gamoraSays, new Point(-118.399968, 34.073087), gamorasAddress,
                     Set.of("skills", "martial_arts"));
-            Person nickFury = Person.of("Samuel L.", "Jackson", 73, nickFurySays, new Point(-118.4345534, 34.082615),
+            User nickFury = User.of("Samuel L.", "Jackson", 73, nickFurySays, new Point(-118.4345534, 34.082615),
                     nickFuryAddress, Set.of("planning", "deception", "resources"));
 
             repo.saveAll(List.of(thor, ironman, blackWidow, wandaMaximoff, gamora, nickFury));
